@@ -4,6 +4,11 @@
   padding:0
 }
 
+.send-btn{
+  background-color: transparent;
+  border: none;
+}
+
 .chat{
   height: 100vh;
   width: 100%;
@@ -38,7 +43,6 @@
   height: 80%;
 }
 
-
 .input-container {
   display:flex;
   background-color: #ccd3dc;
@@ -51,24 +55,49 @@
 
 .input{
   width:90%;
+  margin-right: 5px;
+  border: none;
+  border-radius: 12px;
 }
 
 .right-message, .left-message{
   padding: 10px;
-  background-color: #cfc6e0;
+  background-color: dodgerblue;
   max-width: 50%;
   overflow-wrap: break-word;
   margin-bottom: 2px;
-  border-radius: 12px;
+  border-radius: 30px;
+  animation: floatup .3s forwards
 }
 
 .right-message{
   align-self: flex-end;
-
 }
 
 .left-message{
   align-self: flex-start;
-
 }
 
+.left-message + .right-message{
+  border-bottom-right-radius: 5px;
+}
+
+.right-message + .right-message{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.right-message:last-of-type {
+  border-bottom-right-radius: 30px;
+}
+
+@keyframes floatup {
+  from {
+    transform: translateY(14px);
+    opacity: .0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
